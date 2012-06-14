@@ -3,8 +3,6 @@ from setuptools import setup
 from setuptools.command.test import test as TestCommand
 
 import twelve
-import twelve.adapters
-import twelve.services
 
 
 class PyTest(TestCommand):
@@ -34,6 +32,7 @@ setup(
     package_data={"": ["LICENSE"]},
     include_package_data=True,
     install_requires=["extensions"],
+    setup_requires=["extensions"],
     tests_require=["pytest"],
     cmdclass={"test": PyTest},
     license=open("LICENSE").read(),
@@ -46,3 +45,6 @@ setup(
         "Programming Language :: Python :: 2.7",
     ),
 )
+
+import twelve.adapters
+import twelve.services

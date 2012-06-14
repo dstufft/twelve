@@ -1,7 +1,5 @@
 import os
 
-import extensions
-
 
 class Configuration(object):
 
@@ -29,6 +27,8 @@ class Configuration(object):
         self._load_services()
 
     def _load_services(self):
+        import extensions
+
         for plugin in extensions.get(group="twelve.services"):
             service = plugin.load()
 
