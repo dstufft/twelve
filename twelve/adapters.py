@@ -32,6 +32,30 @@ def django_databases(values):
     return databases
 
 
+def django_emails(values):
+    emails = {}
+
+    for name, config in values.items():
+        email = {}
+
+        for k, v in config.items():
+            if v is None:
+                continue
+
+            if k == "service":
+                if v == "smtp":
+                    email["BACKEND"] = "django.core.mail.backends.smtp.EmailBackend"
+            elif k == "tls":
+                email["USE_TLS"] = v
+            else:
+                email[k.upper()] = v
+
+        emails[name] = email
+
+    return emails
+
+
 if extensions is not None:
     extensions.register("twelve.adapters", "django.debug", "twelve.adapters:django_debug")
     extensions.register("twelve.adapters", "django.databases", "twelve.adapters:django_databases")
+    extensions.register("twelve.adapters", "django.emails", "twelve.adapters:django_emails")
