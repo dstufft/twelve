@@ -1,6 +1,6 @@
 import urlparse
 
-import extensions
+from twelve.compat import extensions
 
 # Register database schemes in URLs.
 urlparse.uses_netloc.append("postgres")
@@ -32,5 +32,5 @@ def databases(environ, names=None):
 
     return databases
 
-
-extensions.register("twelve.services", "databases", "twelve.services:databases")
+if extensions is not None:
+    extensions.register("twelve.services", "databases", "twelve.services:databases")

@@ -1,4 +1,4 @@
-import extensions
+from twelve.compat import extensions
 
 
 def django_databases(values):
@@ -28,4 +28,6 @@ def django_databases(values):
     return databases
 
 
-extensions.register("twelve.adapters", "django.databases", "twelve.adapters:django_databases")
+if extensions is not None:
+    extensions.register("twelve.adapters", "django.debug", "twelve.adapters:django_debug")
+    extensions.register("twelve.adapters", "django.databases", "twelve.adapters:django_databases")

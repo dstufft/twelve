@@ -1,5 +1,7 @@
 import os
 
+from twelve.compat import extensions
+
 
 class Configuration(object):
 

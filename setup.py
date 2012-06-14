@@ -2,7 +2,12 @@
 from setuptools import setup
 from setuptools.command.test import test as TestCommand
 
+import os
+os.environ["TWELVE_ALLOW_NO_EXTENSIONS"] = "1"
+
 import twelve
+import twelve.adapters
+import twelve.services
 
 
 class PyTest(TestCommand):
@@ -45,6 +50,3 @@ setup(
         "Programming Language :: Python :: 2.7",
     ),
 )
-
-import twelve.adapters
-import twelve.services
