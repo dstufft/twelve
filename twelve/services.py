@@ -9,7 +9,7 @@ urlparse.uses_netloc.append("mysql")
 urlparse.uses_netloc.append("sqlite")
 
 
-def databases(environ, names):
+def databases(environ, names=None):
     if names is None:
         names = {"DATABASE_URL": "default"}
 
