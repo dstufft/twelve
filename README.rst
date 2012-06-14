@@ -6,8 +6,20 @@ an ``Environment`` class which abstracts away pulling settings out of the enviro
 and normalizing them and small shims/adapters to make it easy to use those values
 in various popular frameworks.
 
-.. _12factor: http://www.12factor.net/
+There have been a few projects doing similar things, such as `dj-database-url`_,
+`dj-cache-url`_, and `django-heroku-memcacheify`_. Each one of them handling the
+backing service configuration for a single archetype of service (database, cache, etc)
+and tied to a specific framework (and in one case, to a specific framework on a
+specific hosting platform).
 
+Twelve attempts to provide a uniform and simple API to using 12factor_ inspired
+configuration without being specific archetype of backing service, nor to a single
+framework or hosting provider.
+
+.. _12factor: http://www.12factor.net/
+.. _dj-database-url: https://crate.io/packages/dj-database-url/
+.. _dj-cache-url: https://github.com/ghickman/django-cache-url
+.. _django-heroku-memcacheify: https://crate.io/packages/django-heroku-memcacheify/
 
 Basic Usage
 -----------
@@ -49,4 +61,3 @@ Basic Usage w/ Django Adapter
     env = twelve.Environment(adapter="django")
 
     DATABASES = env.databases
-
