@@ -1,8 +1,4 @@
 #!/usr/bin/env python
-
-"""
-distutils/setuptools install script. See inline comments for packaging documentation.
-"""
 import twelve
 import twelve.adapters
 import twelve.services
