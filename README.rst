@@ -13,8 +13,8 @@ and tied to a specific framework (and in one case, to a specific framework on a
 specific hosting platform).
 
 Twelve attempts to provide a uniform and simple API to using 12factor_ inspired
-configuration without being specific archetype of backing service, nor to a single
-framework or hosting provider.
+configuration without being tied to a specific archetype of backing service, nor
+to a single framework or hosting provider.
 
 .. _12factor: http://www.12factor.net/
 .. _dj-database-url: https://crate.io/packages/dj-database-url/
