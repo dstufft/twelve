@@ -1,6 +1,10 @@
 from twelve.compat import extensions
 
 
+def django_debug(value):
+    return value.lower() in ["true", "t", "yes", "on", "y"]
+
+
 def django_databases(values):
     databases = {}
 
