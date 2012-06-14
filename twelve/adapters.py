@@ -8,6 +8,9 @@ def django_databases(values):
         database = {}
 
         for k, v in config.items():
+            if v is None:
+                continue
+
             if k == "service":
                 if v == "postgres":
                     database["ENGINE"] = "django.db.backends.postgresql_psycopg2"
