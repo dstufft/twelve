@@ -21,6 +21,9 @@ class Environment(object):
     def __getattr__(self, name):
         return self.values.get(name)
 
+    def __repr__(self):
+        return "<twelve.Environment [{0}]>".format(",".join(self.values))
+
     def _load_all(self):
         # Load Services
         self._load_services()
