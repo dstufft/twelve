@@ -2,8 +2,8 @@ Twelve
 ======
 
 Twelve is a utility for using 12factor_ inspired settings in Python. It provides
-an ``Environment`` class which abstracts away pulling settings out of the environment
-and normalizing them and small shims/adapters to make it easy to use those values
+a ``Configuration`` class which abstracts away pulling settings out of the environment
+and normalizing them and small adapters to make it easy to use those values
 in various popular frameworks.
 
 There have been a few projects doing similar things, such as `dj-database-url`_,
@@ -30,21 +30,19 @@ Basic Usage
     import os
     os.environ["DATABASE_URL"] = "postgres://user:pass@hostname:5432/dbname"
 
-    # Load Twelve Environment
+    # Load Twelve Configuration
     import twelve
-    env = twelve.Environment()
+    config = twelve.Configuration()
 
     # Use Values
     import psycopg2
     conn = psycopg2.connect(
-                        host=env.databases["default"]["host"],
-                        port=env.databases["default"]["port"],
-                        user=env.databases["default"]["user"],
-                        password=env.databases["default"]["password"],
-                        database=env.databases["default"]["name"],
+                        host=config.databases["default"]["host"],
+                        port=config.databases["default"]["port"],
+                        user=config.databases["default"]["user"],
+                        password=config.databases["default"]["password"],
+                        database=config.databases["default"]["name"],
                     )
-
-    # Make Queries
 
 
 Basic Usage w/ Django Adapter
@@ -58,6 +56,6 @@ Basic Usage w/ Django Adapter
 
     # Load Twelve Environment
     import twelve
-    env = twelve.Environment(adapter="django")
+    config = twelve.Configuration(adapter="django")
 
-    DATABASES = env.databases
+    DATABASES = config.databases

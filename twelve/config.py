@@ -3,10 +3,10 @@ import os
 import extensions
 
 
-class Environment(object):
+class Configuration(object):
 
     def __init__(self, adapter=None, environ=None, names=None, *args, **kwargs):
-        super(Environment, self).__init__(*args, **kwargs)
+        super(Configuration, self).__init__(*args, **kwargs)
 
         if names is None:
             names = {}
@@ -22,7 +22,7 @@ class Environment(object):
         return self.values.get(name)
 
     def __repr__(self):
-        return "<twelve.Environment [{0}]>".format(",".join(self.values))
+        return "<twelve.Configuration [{0}]>".format(",".join(self.values))
 
     def _load_all(self):
         # Load Services
