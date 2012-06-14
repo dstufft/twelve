@@ -1,12 +1,24 @@
 #!/usr/bin/env python
+from setuptools import setup
+from setuptools.command.test import test as TestCommand
+
 import twelve
 import twelve.adapters
 import twelve.services
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+
+class PyTest(TestCommand):
+
+    def finalize_options(self):
+        TestCommand.finalize_options(self)
+        self.test_args = []
+        self.test_suite = True
+
+    def run_tests(self):
+        #import here, cause outside the eggs aren't loaded
+        import pytest
+
+        pytest.main(self.test_args)
 
 setup(
     name="twelve",
@@ -21,9 +33,9 @@ setup(
     ],
     package_data={"": ["LICENSE"]},
     include_package_data=True,
-    install_requires=[
-        "extensions"
-    ],
+    install_requires=["extensions"],
+    tests_require=["pytest"],
+    cmdclass={"test": PyTest},
     license=open("LICENSE").read(),
     classifiers=(
         "Development Status :: 4 - Beta",
