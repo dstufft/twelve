@@ -10,8 +10,6 @@ try:
 except ImportError:
     from distutils.core import setup
 
-requires = []
-
 setup(
     name="twelve",
     version=twelve.__version__,
@@ -26,7 +24,9 @@ setup(
     ],
     package_data={"": ["LICENSE"]},
     include_package_data=True,
-    install_requires=[],
+    install_requires=[
+        "extensions"
+    ],
     license=open("LICENSE").read(),
     classifiers=(
         "Development Status :: 4 - Beta",
