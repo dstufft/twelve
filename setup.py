@@ -4,6 +4,8 @@
 distutils/setuptools install script. See inline comments for packaging documentation.
 """
 import twelve
+import twelve.adapters
+import twelve.services
 
 try:
     from setuptools import setup
