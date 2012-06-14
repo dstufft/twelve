@@ -12,8 +12,7 @@ setup(
     name="twelve",
     version=twelve.__version__,
     description="12factor inspired settings for a variety of backing services archetypes.",
-    long_description=open("README.rst").read() + '\n\n' +
-                     open("CHANGELOG.rst").read(),
+    long_description="\n\n".join([open("README.rst").read(), open("CHANGELOG.rst").read()]),
     author="Donald Stufft",
     author_email="donald.stufft@gmail.com",
     url="https://crate.io/packages/twelve/",
