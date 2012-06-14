@@ -11,7 +11,7 @@ class Configuration(object):
         if names is None:
             names = {}
 
-        self.adapter = adapter
+        self.adapter = adapter.lower()
         self.environ = environ
         self.names = names
         self.values = {}
