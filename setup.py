@@ -20,7 +20,7 @@ setup(
                      open("CHANGELOG.rst").read(),
     author="Donald Stufft",
     author_email="donald.stufft@gmail.com",
-    url="https://github.com/dstufft/twelve/",
+    url="https://crate.io/packages/twelve/",
     packages=[
         "twelve",
     ],
